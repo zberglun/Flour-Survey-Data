@@ -1,1 +1,2 @@
 # Flour-Survey-Data
+## Note: This data is a privately owned dataset and not avialable for parties outside of the original owners and Purdue University. Do note a current project is in the works for an original publication. If you are a researcher who wishes to collaborate on a project with this data or view the data after this publication (est. May 2024 for publication). Please email yfengchi@purdue.edu. 
