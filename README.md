@@ -1,5 +1,5 @@
 # Flour-Survey-Models
-## Note: The data for this model is a privately owned dataset and not avialable for parties outside of the original owners and Purdue University. Do note a current project is in the works for an original publication. If you are a researcher who wishes to collaborate on a project with this data or view the data after this publication (est. May 2024 for publication). Please email yfengchi@purdue.edu. 
+## Note: The data for this model is a privately owned dataset and not avialable for parties outside of the original owners and Purdue University. Do note a current project is in the works for an original publication. If you are a researcher who wishes to collaborate on a project with this data or view the data after this publication (est. June 2024 for publication). Please email yfengchi@purdue.edu. 
 ### Model List
 - Recall Heard (Consumer has heard of flour recalls)
 - Behavior Score (Overall score for proper food safety practices)
@@ -26,4 +26,23 @@ The models follow three different templates.
    2) CART Random Forest Regression
    3) These are combined by the default trained linear regression, essentially a weighted average.
 
+### Cleaning, transformation and feature selection
+The data is cleaned and processed in excel and the following was done: 
+1) Data in Excel source was extracted from the survey source
+2) Categorical variables were one-hot encoded
+3) a variable dictionary with encoded values and keys was created.
+4) composite variables for analysis were created.
+5) Pertinent variables were selected for a new Excel document for data cleaning
+6) Rows with missing values were removed
+7) Rows with duplicate values were removed
+8) Data was extracted as a CSV for easier importing into code
 
+The imported data was manipulated using code for more complex operations.
+1) Correlations were conducted, and highly correlated variables were removed (Ps >0.7) (used Spearman's and Kendal's tau and Tetrachoric correlations)
+2) Variables with low variance (Var <0.001) were removed
+3) Other variables involved in calculating the composite variables were removed since that provides little meaningful conclusions
+4) We conducted feature extraction via statistical tests, Chi-squared for variables to see if they are dependent, and serial-wise Wilcoxian for mean comparisons with categoricals.
+
+### Model Structure and Optimization
+
+The models were created using a 5-fold cross-validation with default parameters. Model selection/optimization used a simple brute force technique. For scores and frequencies, 5000 seeds were run, and the top five models with the lowest RMSE were selected. For recall heard, five models with accuracy that were statistically significant for being greater than their no information rate were selected. These models were then summarized and analyzed to account for randomness in model creation.   
