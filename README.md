@@ -12,10 +12,10 @@ This completely fake data serves as an example to highlight the project's data m
 ### Modeling Information
 The models follow three different templates. 
 
-1) Recall Heard is a raw R-code file and uses a model ensemble consisting of: 
-  1) Mono-layer Neural Network Classifier
-  2) CART Random Forest Classifier
-  3) a logistical regression.
+1) Recall Heard is a raw R-code file and uses a model ensemble consisting of:
+   1) Mono-layer Neural Network Classifier
+   2)  CART Random Forest Classifier
+   3)  a logistical regression.
   These are combined by the default trained linear regression, essentially a weighted average.
 2) Behavior Score is a raw R-code file and uses a model ensemble consisting of:
    1) Mono-layer Neural Network Regression
