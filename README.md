@@ -16,14 +16,14 @@ The models follow three different templates.
    1) Mono-layer Neural Network Classifier
    2)  CART Random Forest Classifier
    3)  a logistical regression.
-  These are combined by the default trained linear regression, essentially a weighted average.
+   4)  These are combined by the default trained linear regression, essentially a weighted average.
 2) Behavior Score is a raw R-code file and uses a model ensemble consisting of:
    1) Mono-layer Neural Network Regression
    2) CART Random Forest Regression
-   These are combined by the default trained linear regression, essentially a weighted average.
+   3) These are combined by the default trained linear regression, essentially a weighted average.
 3) Recall Behavior Score, Sanitization Behavior Score, and Risk Behavior Frequency are R Markdowns that explain the code and other information to assist new collaborators in learning R and the project with their directions. These contain a model ensemble of:
    1) Mono-layer Neural Network Regression
    2) CART Random Forest Regression
-   These are combined by the default trained linear regression, essentially a weighted average.
+   3) These are combined by the default trained linear regression, essentially a weighted average.
 
 
