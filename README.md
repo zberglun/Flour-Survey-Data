@@ -1,5 +1,5 @@
 # Flour-Survey-Models
-Authors: Zachary Berglund (Primary, Wrote Code and Template), Samuel Jacundino (Collaborator, Excel Cleaning), Anqi Chu (Collaborator, Optimization of Sanitization Behavior Score) Jiaming Zhang (Collaborator, Optimization of Recall Behavior Score), Han Chen (Collaborator, Manuscript Writing), Dr. Robert Scharff (Collaborator, supplemental data collection and writing) Dr. Betty Feng (Supervisor)
+Authors: Zachary Berglund (Primary Author, created methodology, created code template, managed collaborators), Samuel Jacundino (Collaborator, Excel Cleaning), Anqi Chu (Collaborator, Optimization of Sanitization Behavior Score) Jiaming Zhang (Collaborator, Optimization of Recall Behavior Score), Han Chen (Collaborator, Assisted with Manuscript Writing), Dr. Robert Scharff (Collaborator, supplemental data collection and writing) Dr. Betty Feng (Supervisor)
 ## Note: The data for this model is a privately owned dataset and is not available to parties outside of the original owners and Purdue University. Do note a current project is in the works for an original publication. If you are a researcher who wishes to collaborate on a project with this data or view the data after this publication (est. June 2024 for publication). Please email yfengchi@purdue.edu. 
 ### Model List
 - Recall Heard (Consumer has heard of flour recalls)
