@@ -486,10 +486,10 @@ for(num in seeds){
   #you can make a list copy of the unique variable names and append the average features to get average for each model kind and a grand mean
   #this is set up for a manova on the feature importances to check if any of these models are really different, then investigate which one is
   #with post-hoc?
-  # print("A")
-  azs[[count]] <- pdp::partial(models$cforest, train=trainingnNet, pred.var = "Risk_Perception_Consumption")
-  bzs[[count]] <- pdp::partial(models$cforest, train=trainingnNet, pred.var = "Risk_Perception_Microbiological_8")
-  czs[[count]] <- pdp::partial(models$cforest, train=trainingnNet, pred.var = "Age")
+
+  azs[[count]] <- pdp::partial(models$cforest, train=trainingnNet, pred.var = "#")
+  bzs[[count]] <- pdp::partial(models$cforest, train=trainingnNet, pred.var = "#")
+  czs[[count]] <- pdp::partial(models$cforest, train=trainingnNet, pred.var = "#")
 
   # 
   # print("B")
@@ -569,63 +569,67 @@ while(count2 <6 ){
   
 count <- 1
 colnames(azs[[count]])[[2]] <- "Mean Behavior Score"
-colnames(azs[[count]])[[1]] <- "Risk Perception of Consuming Raw Dough"
+colnames(azs[[count]])[[1]] <- "#"
 colnames(bzs[[count]])[[2]] <- "Mean Behavior Score"
-colnames(bzs[[count]])[[1]] <- "Raw Chicken has Risk"
+colnames(bzs[[count]])[[1]] <- "#"
 colnames(czs[[count]])[[2]] <- "Mean Behavior Score"
-colnames(czs[[count]])[[1]] <- "Age Range"
+colnames(czs[[count]])[[1]] <- "#"
 
-plota1 <- ggplot(data  = azs[[count]] , aes(x =`Risk Perception of Consuming Raw Dough` , y =`Mean Behavior Score` )) + geom_path() +theme(axis.text=element_text(size=12,color="Black", family = "Times New Roman"),panel.background = element_rect(fill=rgb(1,0.647,0,0.2) ), axis.title.x =element_text(size=14, family = "Times New Roman") , axis.title.y = element_text(size=14, family = "Times New Roman"))+scale_y_continuous(breaks= c(0.54,0.55,0.560,0.57,0.58,0.590,0.60,0.61,0.62,0.63,0.64,0.65), labels=waiver(), limits=c(0.54,0.65))+xlab(str_wrap("Risk Perception of Consuming Raw Dough", width=20))
-plotb1 <- ggplot(data  = bzs[[count]] , aes(x =`Raw Chicken has Risk` , y =`Mean Behavior Score` )) + geom_point() +theme(axis.text=element_text(size=12,color="Black", family = "Times New Roman"),panel.background = element_rect(fill= rgb(1,0.647,0,0.2)), axis.title.x =element_text(size=14, family = "Times New Roman") , axis.title.y = element_text(size=14, family = "Times New Roman"))+scale_y_continuous(breaks= c(0.54,0.55,0.560,0.57,0.58,0.590,0.60,0.61,0.62,0.63,0.64,0.65), labels=waiver(), limits=c(0.54,0.65))
-plotc1 <-ggplot(data  = czs[[count]] , aes(x =`Age Range` , y =`Mean Behavior Score`)) + geom_path( ) +theme(axis.text=element_text(size=12,color="Black", family = "Times New Roman"),panel.background = element_rect(fill= rgb(1,0.647,0,0.2)), axis.title.x =element_text(size=14, family = "Times New Roman") , axis.title.y = element_text(size=14, family = "Times New Roman"))+scale_y_continuous(breaks= c(0.54,0.55,0.560,0.57,0.58,0.590,0.60,0.61,0.62,0.63,0.64,0.65), labels=waiver(), limits=c(0.54,0.65))
+plota1 <- ggplot(data  = azs[[count]] , aes(x =`#` , y =`Mean Behavior Score` )) + geom_path() +theme(axis.text=element_text(size=12,color="Black", family = "Times New Roman"),panel.background = element_rect(fill=rgb(1,0.647,0,0.2) ), axis.title.x =element_text(size=14, family = "Times New Roman") , axis.title.y = element_text(size=14, family = "Times New Roman"))+scale_y_continuous(breaks= c(0.54,0.55,0.560,0.57,0.58,0.590,0.60,0.61,0.62,0.63,0.64,0.65), labels=waiver(), limits=c(0.54,0.65))+xlab(str_wrap("#", width=20))
+plotb1 <- ggplot(data  = bzs[[count]] , aes(x =`#` , y =`Mean Behavior Score` )) + geom_point() +theme(axis.text=element_text(size=12,color="Black", family = "Times New Roman"),panel.background = element_rect(fill= rgb(1,0.647,0,0.2)), axis.title.x =element_text(size=14, family = "Times New Roman") , axis.title.y = element_text(size=14, family = "Times New Roman"))+scale_y_continuous(breaks= c(0.54,0.55,0.560,0.57,0.58,0.590,0.60,0.61,0.62,0.63,0.64,0.65), labels=waiver(), limits=c(0.54,0.65))
+plotc1 <-ggplot(data  = czs[[count]] , aes(x =`#` , y =`Mean Behavior Score`)) + geom_path( ) +theme(axis.text=element_text(size=12,color="Black", family = "Times New Roman"),panel.background = element_rect(fill= rgb(1,0.647,0,0.2)), axis.title.x =element_text(size=14, family = "Times New Roman") , axis.title.y = element_text(size=14, family = "Times New Roman"))+scale_y_continuous(breaks= c(0.54,0.55,0.560,0.57,0.58,0.590,0.60,0.61,0.62,0.63,0.64,0.65), labels=waiver(), limits=c(0.54,0.65))
 
 
 count <- count+1
 colnames(azs[[count]])[[2]] <- "Mean Behavior Score"
-colnames(azs[[count]])[[1]] <- "Risk Perception of Consuming Raw Dough"
+colnames(azs[[count]])[[1]] <- "#"
 colnames(bzs[[count]])[[2]] <- "Mean Behavior Score"
-colnames(bzs[[count]])[[1]] <- "Raw Chicken has Risk"
+colnames(bzs[[count]])[[1]] <- "#"
 colnames(czs[[count]])[[2]] <- "Mean Behavior Score"
-colnames(czs[[count]])[[1]] <- "Age Range"
-plota2 <- ggplot(data  = azs[[count]] , aes(x =`Risk Perception of Consuming Raw Dough` , y =`Mean Behavior Score` )) + geom_path() +theme(axis.text=element_text(size=12,color="Black", family = "Times New Roman"),panel.background = element_rect(fill=rgb(0,1,0.498,0.2)), axis.title.x =element_text(size=14, family = "Times New Roman") , axis.title.y = element_text(size=14, family = "Times New Roman"))+scale_y_continuous(breaks= c(0.54,0.55,0.560,0.57,0.58,0.590,0.60,0.61,0.62,0.63,0.64,0.65), labels=waiver(), limits=c(0.54,0.65))+xlab(str_wrap("Risk Perception of Consuming Raw Dough", width=20))
-plotb2 <- ggplot(data  = bzs[[count]] , aes(x =`Raw Chicken has Risk` , y =`Mean Behavior Score` )) + geom_point() +theme(axis.text=element_text(size=12,color="Black", family = "Times New Roman"),panel.background = element_rect(fill= rgb(0,1,0.498,0.2)), axis.title.x =element_text(size=14, family = "Times New Roman") , axis.title.y = element_text(size=14, family = "Times New Roman"))+scale_y_continuous(breaks= c(0.54,0.55,0.560,0.57,0.58,0.590,0.60,0.61,0.62,0.63,0.64,0.65), labels=waiver(), limits=c(0.54,0.65))
-plotc2 <- ggplot(data  = czs[[count]] , aes(x =`Age Range` , y =`Mean Behavior Score`)) + geom_path( ) +theme(axis.text=element_text(size=12,color="Black", family = "Times New Roman"),panel.background = element_rect(fill= rgb(0,1,0.498,0.2)), axis.title.x =element_text(size=14, family = "Times New Roman") , axis.title.y = element_text(size=14, family = "Times New Roman"))+scale_y_continuous(breaks= c(0.54,0.55,0.560,0.57,0.58,0.590,0.60,0.61,0.62,0.63,0.64,0.65), labels=waiver(), limits=c(0.54,0.65))
+colnames(czs[[count]])[[1]] <- "#"
+
+plota2 <- ggplot(data  = azs[[count]] , aes(x =`#` , y =`Mean Behavior Score` )) + geom_path() +theme(axis.text=element_text(size=12,color="Black", family = "Times New Roman"),panel.background = element_rect(fill=rgb(0,1,0.498,0.2)), axis.title.x =element_text(size=14, family = "Times New Roman") , axis.title.y = element_text(size=14, family = "Times New Roman"))+scale_y_continuous(breaks= c(0.54,0.55,0.560,0.57,0.58,0.590,0.60,0.61,0.62,0.63,0.64,0.65), labels=waiver(), limits=c(0.54,0.65))+xlab(str_wrap("#", width=20))
+plotb2 <- ggplot(data  = bzs[[count]] , aes(x =`#` , y =`Mean Behavior Score` )) + geom_point() +theme(axis.text=element_text(size=12,color="Black", family = "Times New Roman"),panel.background = element_rect(fill= rgb(0,1,0.498,0.2)), axis.title.x =element_text(size=14, family = "Times New Roman") , axis.title.y = element_text(size=14, family = "Times New Roman"))+scale_y_continuous(breaks= c(0.54,0.55,0.560,0.57,0.58,0.590,0.60,0.61,0.62,0.63,0.64,0.65), labels=waiver(), limits=c(0.54,0.65))
+plotc2 <- ggplot(data  = czs[[count]] , aes(x =`#` , y =`Mean Behavior Score`)) + geom_path( ) +theme(axis.text=element_text(size=12,color="Black", family = "Times New Roman"),panel.background = element_rect(fill= rgb(0,1,0.498,0.2)), axis.title.x =element_text(size=14, family = "Times New Roman") , axis.title.y = element_text(size=14, family = "Times New Roman"))+scale_y_continuous(breaks= c(0.54,0.55,0.560,0.57,0.58,0.590,0.60,0.61,0.62,0.63,0.64,0.65), labels=waiver(), limits=c(0.54,0.65))
 
 
 count <- count+1
 colnames(azs[[count]])[[2]] <- "Mean Behavior Score"
-colnames(azs[[count]])[[1]] <- "Risk Perception of Consuming Raw Dough"
+colnames(azs[[count]])[[1]] <- "#"
 colnames(bzs[[count]])[[2]] <- "Mean Behavior Score"
-colnames(bzs[[count]])[[1]] <- "Raw Chicken has Risk"
+colnames(bzs[[count]])[[1]] <- "#"
 colnames(czs[[count]])[[2]] <- "Mean Behavior Score"
-colnames(czs[[count]])[[1]] <- "Age Range"
-plota3<- ggplot(data  = azs[[count]] , aes(x =`Risk Perception of Consuming Raw Dough` , y =`Mean Behavior Score` )) + geom_path() +theme(axis.text=element_text(size=12,color="Black", family = "Times New Roman"),panel.background = element_rect(fill= rgb(0,0.749,1,0.2)), axis.title.x =element_text(size=14, family = "Times New Roman") , axis.title.y = element_text(size=14,family = "Times New Roman"))+scale_y_continuous(breaks= c(0.54,0.55,0.560,0.57,0.58,0.590,0.60,0.61,0.62,0.63,0.64,0.65), labels=waiver(), limits=c(0.54,0.65))+xlab(str_wrap("Risk Perception of Consuming Raw Dough", width=20))#+xlab(str_wrap("Risk Perception of Consuming Raw Dough", width=20)) axis.text=element_text(size=14,color="Black", family = "Times New Roman"),  plot.margin= unit(c(1,1,2,1),"lines")
-plotb3<-ggplot(data  = bzs[[count]] , aes(x =`Raw Chicken has Risk` , y =`Mean Behavior Score` )) + geom_point() +theme(axis.text=element_text(size=12,color="Black", family = "Times New Roman"),panel.background = element_rect(fill= rgb(0,0.749,1,0.2)), axis.title.x =element_text(size=14, family = "Times New Roman") , axis.title.y = element_text(size=14, family = "Times New Roman"))+scale_y_continuous(breaks= c(0.54,0.55,0.560,0.57,0.58,0.590,0.60,0.61,0.62,0.63,0.64,0.65), labels=waiver(), limits=c(0.54,0.65))
-plotc3 <-ggplot(data  = czs[[count]] , aes(x =`Age Range` , y =`Mean Behavior Score`)) + geom_path()+theme(axis.text=element_text(size=12,color="Black", family = "Times New Roman"),panel.background = element_rect(fill= rgb(0,0.749,1,0.2)), axis.title.x =element_text(size=14, family = "Times New Roman") , axis.title.y = element_text(size=14, family = "Times New Roman") )+scale_y_continuous(breaks= c(0.54,0.55,0.560,0.57,0.58,0.590,0.60,0.61,0.62,0.63,0.64,0.65), labels=waiver(), limits=c(0.54,0.65))#+xlab(str_wrap("Num. of Foods Percieved Risky", width=20)) axis.text=element_text(size=12,color="Black", family = "Times New Roman"), plot.margin= unit(c(1,1,2,1),"lines")
+colnames(czs[[count]])[[1]] <- "#"
+
+plota3<- ggplot(data  = azs[[count]] , aes(x =`#` , y =`Mean Behavior Score` )) + geom_path() +theme(axis.text=element_text(size=12,color="Black", family = "Times New Roman"),panel.background = element_rect(fill= rgb(0,0.749,1,0.2)), axis.title.x =element_text(size=14, family = "Times New Roman") , axis.title.y = element_text(size=14,family = "Times New Roman"))+scale_y_continuous(breaks= c(0.54,0.55,0.560,0.57,0.58,0.590,0.60,0.61,0.62,0.63,0.64,0.65), labels=waiver(), limits=c(0.54,0.65))+xlab(str_wrap("#", width=20))#+xlab(str_wrap("#", width=20)) axis.text=element_text(size=14,color="Black", family = "Times New Roman"),  plot.margin= unit(c(1,1,2,1),"lines")
+plotb3<-ggplot(data  = bzs[[count]] , aes(x =`#` , y =`Mean Behavior Score` )) + geom_point() +theme(axis.text=element_text(size=12,color="Black", family = "Times New Roman"),panel.background = element_rect(fill= rgb(0,0.749,1,0.2)), axis.title.x =element_text(size=14, family = "Times New Roman") , axis.title.y = element_text(size=14, family = "Times New Roman"))+scale_y_continuous(breaks= c(0.54,0.55,0.560,0.57,0.58,0.590,0.60,0.61,0.62,0.63,0.64,0.65), labels=waiver(), limits=c(0.54,0.65))
+plotc3 <-ggplot(data  = czs[[count]] , aes(x =`#` , y =`Mean Behavior Score`)) + geom_path()+theme(axis.text=element_text(size=12,color="Black", family = "Times New Roman"),panel.background = element_rect(fill= rgb(0,0.749,1,0.2)), axis.title.x =element_text(size=14, family = "Times New Roman") , axis.title.y = element_text(size=14, family = "Times New Roman") )+scale_y_continuous(breaks= c(0.54,0.55,0.560,0.57,0.58,0.590,0.60,0.61,0.62,0.63,0.64,0.65), labels=waiver(), limits=c(0.54,0.65))#+xlab(str_wrap("#", width=20)) axis.text=element_text(size=12,color="Black", family = "Times New Roman"), plot.margin= unit(c(1,1,2,1),"lines")
 
 
 count <- count+1
 colnames(azs[[count]])[[2]] <- "Mean Behavior Score"
-colnames(azs[[count]])[[1]] <- "Risk Perception of Consuming Raw Dough"
+colnames(azs[[count]])[[1]] <- "#"
 colnames(bzs[[count]])[[2]] <- "Mean Behavior Score"
-colnames(bzs[[count]])[[1]] <- "Raw Chicken has Risk"
+colnames(bzs[[count]])[[1]] <- "#"
 colnames(czs[[count]])[[2]] <- "Mean Behavior Score"
-colnames(czs[[count]])[[1]] <- "Age Range"
-plota4<- ggplot(data  = azs[[count]] , aes(x =`Risk Perception of Consuming Raw Dough` , y =`Mean Behavior Score` )) + geom_path() +theme(axis.text=element_text(size=12,color="Black", family = "Times New Roman"),panel.background = element_rect(fill= rgb(0,0,1,0.2)), axis.title.x =element_text(size=14, family = "Times New Roman") , axis.title.y = element_text(size=14, family = "Times New Roman"))+scale_y_continuous(breaks= c(0.54,0.55,0.560,0.57,0.58,0.590,0.60,0.61,0.62,0.63,0.64,0.65), labels=waiver(), limits=c(0.54,0.65))+xlab(str_wrap("Risk Perception of Consuming Raw Dough", width=20))
-plotb4<- ggplot(data  = bzs[[count]] , aes(x =`Raw Chicken has Risk` , y =`Mean Behavior Score` )) + geom_point()+theme(axis.text=element_text(size=12,color="Black", family = "Times New Roman"),panel.background = element_rect(fill= rgb(0,0,1,0.2)),axis.title.x =element_text(size=14, family = "Times New Roman") , axis.title.y = element_text(size=14, family = "Times New Roman"))+scale_y_continuous(breaks= c(0.54,0.55,0.560,0.57,0.58,0.590,0.60,0.61,0.62,0.63,0.64,0.65), labels=waiver(), limits=c(0.54,0.65))#+xlab(str_wrap("Raw Chicken has Risk", width=20)) axis.text = element_text(size=14, color="Black", family = "Times New Roman"),, plot.margin= unit(c(1,1,2,1),"lines")
-plotc4<- ggplot(data  = czs[[count]] , aes(x =`Age Range` , y =`Mean Behavior Score`)) + geom_path( ) +theme(axis.text=element_text(size=12,color="Black", family = "Times New Roman"),panel.background = element_rect(fill= rgb(0,0,1,0.2)), axis.title.x =element_text(size=14, family = "Times New Roman") , axis.title.y = element_text(size=14, family = "Times New Roman"))+scale_y_continuous(breaks= c(0.54,0.55,0.560,0.57,0.58,0.590,0.60,0.61,0.62,0.63,0.64,0.65), labels=waiver(), limits=c(0.54,0.65))
+colnames(czs[[count]])[[1]] <- "#"
+
+plota4<- ggplot(data  = azs[[count]] , aes(x =`#` , y =`Mean Behavior Score` )) + geom_path() +theme(axis.text=element_text(size=12,color="Black", family = "Times New Roman"),panel.background = element_rect(fill= rgb(0,0,1,0.2)), axis.title.x =element_text(size=14, family = "Times New Roman") , axis.title.y = element_text(size=14, family = "Times New Roman"))+scale_y_continuous(breaks= c(0.54,0.55,0.560,0.57,0.58,0.590,0.60,0.61,0.62,0.63,0.64,0.65), labels=waiver(), limits=c(0.54,0.65))+xlab(str_wrap("#", width=20))
+plotb4<- ggplot(data  = bzs[[count]] , aes(x =`#` , y =`Mean Behavior Score` )) + geom_point()+theme(axis.text=element_text(size=12,color="Black", family = "Times New Roman"),panel.background = element_rect(fill= rgb(0,0,1,0.2)),axis.title.x =element_text(size=14, family = "Times New Roman") , axis.title.y = element_text(size=14, family = "Times New Roman"))+scale_y_continuous(breaks= c(0.54,0.55,0.560,0.57,0.58,0.590,0.60,0.61,0.62,0.63,0.64,0.65), labels=waiver(), limits=c(0.54,0.65))#+xlab(str_wrap("#", width=20)) axis.text = element_text(size=14, color="Black", family = "Times New Roman"),, plot.margin= unit(c(1,1,2,1),"lines")
+plotc4<- ggplot(data  = czs[[count]] , aes(x =`#` , y =`Mean Behavior Score`)) + geom_path( ) +theme(axis.text=element_text(size=12,color="Black", family = "Times New Roman"),panel.background = element_rect(fill= rgb(0,0,1,0.2)), axis.title.x =element_text(size=14, family = "Times New Roman") , axis.title.y = element_text(size=14, family = "Times New Roman"))+scale_y_continuous(breaks= c(0.54,0.55,0.560,0.57,0.58,0.590,0.60,0.61,0.62,0.63,0.64,0.65), labels=waiver(), limits=c(0.54,0.65))
 
 
 count <- count+1
 colnames(azs[[count]])[[2]] <- "Mean Behavior Score"
-colnames(azs[[count]])[[1]] <- "Risk Perception of Consuming Raw Dough"
+colnames(azs[[count]])[[1]] <- "#"
 colnames(bzs[[count]])[[2]] <- "Mean Behavior Score"
-colnames(bzs[[count]])[[1]] <- "Raw Chicken has Risk"
+colnames(bzs[[count]])[[1]] <- "#"
 colnames(czs[[count]])[[2]] <- "Mean Behavior Score"
-colnames(czs[[count]])[[1]] <- "Age Range"
-plota5<- ggplot(data  = azs[[count]] , aes(x =`Risk Perception of Consuming Raw Dough` , y =`Mean Behavior Score` )) + geom_path() +theme(axis.text=element_text(size=12,color="Black", family = "Times New Roman"),panel.background = element_rect(fill= rgb(1,0.784,0.576,0.2)), axis.title.x =element_text(size=14,family = "Times New Roman") , axis.title.y = element_text(size=14,family = "Times New Roman"))+scale_y_continuous(breaks= c(0.54,0.55,0.560,0.57,0.58,0.590,0.60,0.61,0.62,0.63,0.64,0.65), labels=waiver(), limits=c(0.54,0.65))+xlab(str_wrap("Risk Perception of Consuming Raw Dough", width=20))
-plotb5<- ggplot(data  = bzs[[count]] , aes(x =`Raw Chicken has Risk` , y =`Mean Behavior Score` )) + geom_point() +theme(axis.text=element_text(size=12,color="Black", family = "Times New Roman"),panel.background = element_rect(fill= rgb(1,0.784,0.576,0.2)), axis.title.x =element_text(size=14,family = "Times New Roman") , axis.title.y = element_text(size=14,family = "Times New Roman"))+scale_y_continuous(breaks= c(0.54,0.55,0.560,0.57,0.58,0.590,0.60,0.61,0.62,0.63,0.64,0.65), labels=waiver(), limits=c(0.54,0.65))
-plotc5<- ggplot(data  = czs[[count]] , aes(x =`Age Range` , y =`Mean Behavior Score`)) + geom_path( ) +theme(axis.text=element_text(size=12,color="Black", family = "Times New Roman"),panel.background = element_rect(fill= rgb(1,0.784,0.576,0.2)), axis.title.x =element_text(size=14,family = "Times New Roman") , axis.title.y = element_text(size=14,family = "Times New Roman"))+scale_y_continuous(breaks= c(0.54,0.55,0.560,0.57,0.58,0.590,0.60,0.61,0.62,0.63,0.64,0.65), labels=waiver(), limits=c(0.54,0.65))
+colnames(czs[[count]])[[1]] <- "#"
+
+plota5<- ggplot(data  = azs[[count]] , aes(x =`#` , y =`Mean Behavior Score` )) + geom_path() +theme(axis.text=element_text(size=12,color="Black", family = "Times New Roman"),panel.background = element_rect(fill= rgb(1,0.784,0.576,0.2)), axis.title.x =element_text(size=14,family = "Times New Roman") , axis.title.y = element_text(size=14,family = "Times New Roman"))+scale_y_continuous(breaks= c(0.54,0.55,0.560,0.57,0.58,0.590,0.60,0.61,0.62,0.63,0.64,0.65), labels=waiver(), limits=c(0.54,0.65))+xlab(str_wrap("#", width=20))
+plotb5<- ggplot(data  = bzs[[count]] , aes(x =`#` , y =`Mean Behavior Score` )) + geom_point() +theme(axis.text=element_text(size=12,color="Black", family = "Times New Roman"),panel.background = element_rect(fill= rgb(1,0.784,0.576,0.2)), axis.title.x =element_text(size=14,family = "Times New Roman") , axis.title.y = element_text(size=14,family = "Times New Roman"))+scale_y_continuous(breaks= c(0.54,0.55,0.560,0.57,0.58,0.590,0.60,0.61,0.62,0.63,0.64,0.65), labels=waiver(), limits=c(0.54,0.65))
+plotc5<- ggplot(data  = czs[[count]] , aes(x =`#` , y =`Mean Behavior Score`)) + geom_path( ) +theme(axis.text=element_text(size=12,color="Black", family = "Times New Roman"),panel.background = element_rect(fill= rgb(1,0.784,0.576,0.2)), axis.title.x =element_text(size=14,family = "Times New Roman") , axis.title.y = element_text(size=14,family = "Times New Roman"))+scale_y_continuous(breaks= c(0.54,0.55,0.560,0.57,0.58,0.590,0.60,0.61,0.62,0.63,0.64,0.65), labels=waiver(), limits=c(0.54,0.65))
 
 
 ggarrange(plota1+ggtitle("Iteration 1"), plota2+ggtitle("Iteration 2"), plota3+ggtitle("Iteration 3"), plota4+ggtitle("Iteration 4") , plota5+ggtitle("Iteration 5")  , plotb1 , plotb2, plotb3, plotb4, plotb5, plotc1, plotc2, plotc3, plotc4, plotc5, ncol=5,nrow=3)
@@ -833,9 +837,9 @@ devtools::session_info()
 # diag(cov(t(featInteractCforest)))
 # diag(cov(t(featInteractNnet)))
 # 
-# interaction.plot(x.factor= reg_data$Risk_Behavior , trace.factor = reg_data$Consumer_Focus_Pack_5, response = reg_data$Behavior_Score, ylab = "Mean behavior score" , xlab= "Frequency eating raw dough or batter", legend = FALSE)
-# interaction.plot(x.factor= reg_data$Risk_Perception_Microbiological_8 , trace.factor = reg_data$Consumer_Focus_Pack_5, response = reg_data$Behavior_Score, ylab = "Mean behavior score" , xlab= "Raw Chicken has Risk", legend = FALSE)
-# interaction.plot(x.factor= reg_data$Risk_Perception_Microbiological_8 , trace.factor = reg_data$Recall_Hear_Action_4, response = reg_data$Behavior_Score, ylab = "Mean behavior score" , xlab= "Raw Chicken has Risk", legend = FALSE)
+# interaction.plot(x.factor= reg_data$Risk_Behavior , trace.factor = reg_data$#, response = reg_data$Behavior_Score, ylab = "Mean behavior score" , xlab= "F#", legend = FALSE)
+# interaction.plot(x.factor= reg_data$#8 , trace.factor = reg_data$#, response = reg_data$Behavior_Score, ylab = "Mean behavior score" , xlab= "#", legend = FALSE)
+# interaction.plot(x.factor= reg_data$# , trace.factor = reg_data$#, response = reg_data$Behavior_Score, ylab = "Mean behavior score" , xlab= "#", legend = FALSE)
 # 
 # 
 # 
