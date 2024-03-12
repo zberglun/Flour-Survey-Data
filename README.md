@@ -1,14 +1,15 @@
 # Flour-Survey-Models
-## Note: The data for this model is a privately owned dataset and not avialable for parties outside of the original owners and Purdue University. Do note a current project is in the works for an original publication. If you are a researcher who wishes to collaborate on a project with this data or view the data after this publication (est. June 2024 for publication). Please email yfengchi@purdue.edu. 
+Authors: Zachary Berglund (Primary, Wrote Code and Template), Samuel Jacundino (Collaborator, Excel Cleaning), Anqi Chu (Collaborator, Optimization of Sanitization Behavior Score) Jiaming Zhang (Collaborator, Optimization of Recall Behavior Score), Han Chen (Collaborator, Manuscript Writing), Dr. Robert Scharff (Collaborator, supplemental data collection and writing) Dr. Betty Feng (Supervisor)
+## Note: The data for this model is a privately owned dataset and is not available to parties outside of the original owners and Purdue University. Do note a current project is in the works for an original publication. If you are a researcher who wishes to collaborate on a project with this data or view the data after this publication (est. June 2024 for publication). Please email yfengchi@purdue.edu. 
 ### Model List
 - Recall Heard (Consumer has heard of flour recalls)
 - Behavior Score (Overall score for proper food safety practices)
 - Recall Behavior Score (Score of how safe consumers behave when hearing about recalls)
 - Sanitization Behavior Score ( Score of how well consumers practice sanitization practices
-- Risk Behavior Frequency (How often consumers consume raw dough or batter, lower values correspond to more frequency)
+- Risk Behavior Frequency (How often consumers consume raw dough or batter; lower values correspond to more frequency)
 ### Data
 Uploaded data is generated from the original data. Data points were randomized between rows, breaking any true associations between variables. Additionally, the data was sabotaged intentionally, replacing data points with randomly generated, valid data points that do not represent any valid findings or distributions of the survey.
-This completely fake data serves as an example to highlight the project's data manipulation work process while protecting the data source. For access to the original data, please email yfengchi@purdue.edu. For more information on the data and the complete survey, please review https://doi.org/10.4315/JFP-19-562.
+This completely fake data serves as an example to highlight the project's data manipulation work process while protecting the data source. To access the original data, please email yfengchi@purdue.edu. For more information on the data and the complete survey, please review https://doi.org/10.4315/JFP-19-562.
 ### Modeling Information
 The models follow three different templates. 
 
